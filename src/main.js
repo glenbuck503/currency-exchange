@@ -5,7 +5,7 @@ import './css/styles.css';
 import CurrencyConverter from './currency-service.js';
 
 function getRateBGN(response) {
-  let name = parseInt($("#userDollar").val());
+  let name = parseFloat($("#userDollar").val());
   if (response.conversion_rates){
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * name} lev.`);
   } else {
@@ -78,7 +78,7 @@ async function apiRateZAR() {
 $(document).ready(function () {
   $("#exchange").click(function () {
     event.preventDefault();
-    let userInput = parseInt($("#userDollar").val());
+    let userInput = parseFloat($("#userDollar").val());
     $(".output").html(userInput);
 
     $("#convert-button1").click(function () {
@@ -122,7 +122,7 @@ $(document).ready(function () {
 
   $("#exchange5").click(function () {
     event.preventDefault();
-    let userInput5 = parseInt($("#userDollar5").val());
+    let userInput5 = parseFloat($("#userDollar5").val());
     $(".output5").html(userInput5);
     
     $("#convert-button5").click(function () {
