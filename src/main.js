@@ -2,31 +2,49 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import CurrencyConverter from './currency-service.js';
+// import CurrencyConverter from './currency-service.js';
 
 
-function getRate(response) {
-  if (response.conversion_rates){
-    $("#currency-output").html(`The current exchange rate for BGN is ${response.conversion_rates.USD} lev.`);
-  } else {
-    $("#currency-output").html(`${response}`);
-  }
+// function getRate(response) {
+//   if (response.conversion_rates){
+//     $("#currency-output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN * 2} lev.`);
+//   } else {
+//     $("#currency-output").html(`${response}`);
+//   }
   
-}
+// }
 
 
-async function apiRate() {
-  const response = await CurrencyConverter.getUsdEur();
-  getRate(response);
-}
+// async function apiRate() {
+//   const response = await CurrencyConverter.getUSD();
+//   getRate(response);
+// }
 
 $(document).ready(function () {
 
-  $("#convert-button").click(function () {
+  $("#exchange").click(function () {
     event.preventDefault();
-    apiRate();
+    // apiRate();
+    let userInput = parseInt($("input#userDollar").val());
+    $(".output").html(userInput);
+   
+
+    // $("#convert-button2").click(function () {
+    //   event.preventDefault();
+    //   apiRate();
+    // });
   });
 });
+
+
+// $(document).ready(function() {
+//   $('#weatherLocation').click(function() {
+//     let userInput = parseInt($("input#userDollar").val());
+//     clearFields();
+//     makeApiCall(city);
+//   });
+// });
+
 
 
 
@@ -50,13 +68,7 @@ $(document).ready(function () {
 
 
 
-// $(document).ready(function() {
-//   $('#weatherLocation').click(function() {
-//     let userInput = parseInt($("input#userDollar").val());
-//     clearFields();
-//     makeApiCall(city);
-//   });
-// });
+
 
 
 

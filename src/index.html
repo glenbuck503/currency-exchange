@@ -9,7 +9,7 @@
     <h1>Welcome To the very, extremely, super and etra basic Currency Exchange Site </h1>
     <form id="exchange">
       <h3>Please select a currenct to convert USD to:</h3>
-      <div class="currencySelect">
+      <!-- <div class="currencySelect">
         <select id="size">
           <option value= "BGN">BGN Bulgarian lev</option>
           <option value= "NOK">NOK Norwegian Krone</option>
@@ -17,15 +17,21 @@
           <option value= "ZAR">ZAR South African Rand</option>
           <option value= "SEK">SEK Swedish Krona</option>
         </select>
-      </div>
+      </div> -->
       <div class="userInput">
         <label for="userDollar">Enter USD amount to be converted:</label>
         <input id="userDollar" type="number">
       </div>
-      <div class="buttonDiv">
-        <button class = "btn btn-danger" type="submit" class="btn">Convert now!</button>
+      
+        <button class = "btn btn-danger" type="submit" class="btn" id="convert-button2">Convert now!</button>
+      <div class="currency-output">
       </div>
     </form>
+    <div class="output">
+    </div>
+   
+
+    
 
     <!-- <button class="btn btn-success" type="submit" class="btn" id="convert-button">BGN Bulgarian lev exchange rate</button>
       <div id="currency-output">
