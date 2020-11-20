@@ -18,7 +18,7 @@ function getRate(response) {
 function getRateNOK(response) {
   let norw = parseInt($("#userDollar2").val());
   if (response.conversion_rates){
-    $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} lev.`);
+    $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} Krone.`);
   } else {
     $(".output2").html(`${response}`);
   }
