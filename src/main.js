@@ -4,13 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyConverter from './currency-service.js';
 
-let userInput = parseInt($("input#userDollar").val());
+
+
 function getRate(response) {
+  
   if (response.conversion_rates){
-    $(".output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN * 2} lev.`);
+    $(".output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN * 4} is  lev.`);
   } else {
     $(".output").html(`${response}`);
   }
+
   
 }
 
@@ -24,15 +27,16 @@ $(document).ready(function () {
 
   $("#exchange").click(function () {
     event.preventDefault();
-    apiRate();
+    let userInput = parseInt($("#userDollar").val());
     
     $(".output").html(userInput);
+    // apiRate();
    
 
-    // $("#convert-button2").click(function () {
-    //   event.preventDefault();
-    //   apiRate();
-    // });
+    $("#convert-button2").click(function () {
+      event.preventDefault();
+      apiRate();
+    });
   });
 });
 
