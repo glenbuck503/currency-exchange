@@ -13,7 +13,7 @@ function clearFields() {
 
 function getElements(response) {
   if (response.main) {
-    $('.eurosFromDollars').text(`The humidity in ${response.name} is ${response.main.humidity}%`);
+    $('.eurosFromDollars').text(`Your inputted amount from USD to EUR is ${response.name} is ${response.conversion_rates.humidity}%`);
   } else {
     $('.showErrors').text(`There was an error: ${response}`);
   }
