@@ -2,30 +2,30 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-// import CurrencyConverter from './currency-service.js';
+import CurrencyConverter from './currency-service.js';
 
-
-// function getRate(response) {
-//   if (response.conversion_rates){
-//     $("#currency-output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN * 2} lev.`);
-//   } else {
-//     $("#currency-output").html(`${response}`);
-//   }
+let userInput = parseInt($("input#userDollar").val());
+function getRate(response) {
+  if (response.conversion_rates){
+    $(".output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN * 2} lev.`);
+  } else {
+    $(".output").html(`${response}`);
+  }
   
-// }
+}
 
 
-// async function apiRate() {
-//   const response = await CurrencyConverter.getUSD();
-//   getRate(response);
-// }
+async function apiRate() {
+  const response = await CurrencyConverter.getUSD();
+  getRate(response);
+}
 
 $(document).ready(function () {
 
   $("#exchange").click(function () {
     event.preventDefault();
-    // apiRate();
-    let userInput = parseInt($("input#userDollar").val());
+    apiRate();
+    
     $(".output").html(userInput);
    
 
