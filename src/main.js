@@ -7,9 +7,9 @@ import CurrencyConverter from './currency-service.js';
 
 
 function getRate(response) {
-  
+  let name = parseInt($("#userDollar").val());
   if (response.conversion_rates){
-    $(".output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN * 4} is  lev.`);
+    $(".output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN * name} is  lev.`);
   } else {
     $(".output").html(`${response}`);
   }
