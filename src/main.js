@@ -9,36 +9,65 @@ import CurrencyConverter from './currency-service.js';
 function getRate(response) {
   let name = parseInt($("#userDollar").val());
   if (response.conversion_rates){
-    $(".output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN * name} is  lev.`);
+    $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * name} lev.`);
   } else {
     $(".output").html(`${response}`);
   }
-
-  
 }
 
-
+function getRateNOK(response) {
+  let norw = parseInt($("#userDollar2").val());
+  if (response.conversion_rates){
+    $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} lev.`);
+  } else {
+    $(".output2").html(`${response}`);
+  }
+}
 async function apiRate() {
   const response = await CurrencyConverter.getUSD();
   getRate(response);
 }
 
-$(document).ready(function () {
+async function apiRate2() {
+  const response = await CurrencyConverter.getUSD();
+  getRateNOK(response);
+}
 
+
+$(document).ready(function () {
   $("#exchange").click(function () {
     event.preventDefault();
     let userInput = parseInt($("#userDollar").val());
-    
     $(".output").html(userInput);
-    // apiRate();
-   
 
-    $("#convert-button2").click(function () {
+    $("#convert-button1").click(function () {
       event.preventDefault();
       apiRate();
     });
   });
+
+
+  $("#exchange2").click(function () {
+    event.preventDefault();
+    let userInput2 = parseInt($("#userDollar2").val());
+    $(".output2").html(userInput2);
+    
+    $("#convert-button2").click(function () {
+      event.preventDefault();
+      apiRate2();
+    });
+  });
 });
+
+
+
+
+
+
+
+
+
+
 
 
 // $(document).ready(function() {
