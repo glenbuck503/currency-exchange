@@ -24,6 +24,13 @@ exepct: let price.toEqual(totalPrice)
 test: show user total price
 expect: (output).text(totalPrice)
 
+## Retrieving API Key Instructions
+
+- go to https://www.exchangerate-api.com/
+- Type in your email address in the box where it says "Your email address" and click "Get Free Key"
+- The prompt will take you to a dashboard that will show you your API Key.
+- Copy and Paste into clipboard and follow in the structions below under "How to set up .env file"
+
 ## Setup/Installation Requirements
 
 - Go to https://github.com/glenbuck503/pizza
@@ -38,8 +45,6 @@ expect: (output).text(totalPrice)
   _ Navigate to your terminal and get to your projects root directory.
   _ Type in " touch .env" and hit enter - this will create a .env file in your directory.
   _ Add .env file to .gitignore file. \* Add API Key in .env file and label it " API_KEY=(your key here).
-
-## Retrieving API Key Instructions
 
 ## Known Bugs
 
