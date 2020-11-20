@@ -7,14 +7,13 @@ import WeatherService from './weather-service.js';
 function clearFields() {
   $('#location').val("");
   $('.showErrors').text("");
-  $('.showHumidity').text("");
-  $('.showTemp').text("");
+  $('.eurosFromDollars').text("");
+ 
 }
 
 function getElements(response) {
   if (response.main) {
-    $('.showHumidity').text(`The humidity in ${response.name} is ${response.main.humidity}%`);
-    $('.showTemp').text(`The temperature in Kelvins is ${response.main.temp} degrees.`);
+    $('.eurosFromDollars').text(`The humidity in ${response.name} is ${response.main.humidity}%`);
   } else {
     $('.showErrors').text(`There was an error: ${response}`);
   }
@@ -26,8 +25,8 @@ async function makeApiCall(city) {
 }
 
 $(document).ready(function() {
-  $('#weatherLocation').click(function() {
-    let city = $('#location').val();
+  $('#USDtoEUR').click(function() {
+    let euros = parseInt($("#dollarToEuro").val());
     clearFields();
     makeApiCall(city);
   });
