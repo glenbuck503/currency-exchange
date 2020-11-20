@@ -5,14 +5,18 @@
 <body>
   <div class="container">
     <h1>Welcome To the very, extremely, super and etra basic Currency Exchange Site </h1>
-
-    <label for="location">Enter US Dollar amount and find the exchange rate for EUR:</label>
-    <input id="location" type="text">
-    <button class="btn-success" id="weatherLocation">See USD to EUR now!</button>
-    <br>
-   
-    <div class="showHumidity"></div>
-    <div class="showErrors"></div>
+    <form id="exchange">
+      <h3>Please select a currenct to convert USD to:</h3>
+      <div class="currencySelect">
+        <select id="size">
+          <option value= "small">BGN Bulgarian lev</option>
+          <option value= "medium">NOK Norwegian Krone</option>
+          <option value= "large">RUB Russian Ruble</option>
+          <option value= "medium">ZAR South African Rand</option>
+          <option value= "large">SEK Swedish Krona</option>
+        </select>
+      </div>
+    </form>
   </div>
 </body>
 </html>
