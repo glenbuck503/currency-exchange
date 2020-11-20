@@ -25,11 +25,31 @@ function getRateNOK(response) {
 function getRateRUB(response) {
   let rub = parseInt($("#userDollar3").val());
   if (response.conversion_rates){
-    $(".output3").html(`The exchange rate from USD to NOK is ${response.conversion_rates.RUB * rub} Krone.`);
+    $(".output3").html(`The exchange rate from USD to RUB is ${response.conversion_rates.RUB * rub} Ruble.`);
   } else {
     $(".output3").html(`${response}`);
   }
 }
+
+function getRateSEK(response) {
+  let sek = parseInt($("#userDollar4").val());
+  if (response.conversion_rates){
+    $(".output4").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * sek} Krona.`);
+  } else {
+    $(".output4").html(`${response}`);
+  }
+}
+
+function getRateZAR(response) {
+  let zar = parseInt($("#userDollar5").val());
+  if (response.conversion_rates){
+    $(".output5").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * zar} Rand.`);
+  } else {
+    $(".output5").html(`${response}`);
+  }
+}
+
+
 async function apiRateBGN() {
   const response = await CurrencyConverter.getUSD();
   getRateBGN(response);
@@ -43,6 +63,16 @@ async function apiRateNOK() {
 async function apiRateRUB() {
   const response = await CurrencyConverter.getUSD();
   getRateRUB(response);
+}
+
+async function apiRateSEK() {
+  const response = await CurrencyConverter.getUSD();
+  getRateSEK(response);
+}
+
+async function apiRateZAR() {
+  const response = await CurrencyConverter.getUSD();
+  getRateZAR(response);
 }
 
 $(document).ready(function () {
@@ -76,6 +106,28 @@ $(document).ready(function () {
     $("#convert-button3").click(function () {
       event.preventDefault();
       apiRateRUB();
+    });
+  });
+
+  $("#exchange4").click(function () {
+    event.preventDefault();
+    let userInput4 = parseInt($("#userDollar4").val());
+    $(".output4").html(userInput4);
+    
+    $("#convert-button4").click(function () {
+      event.preventDefault();
+      apiRateSEK();
+    });
+  });
+
+  $("#exchange5").click(function () {
+    event.preventDefault();
+    let userInput5 = parseInt($("#userDollar5").val());
+    $(".output5").html(userInput5);
+    
+    $("#convert-button5").click(function () {
+      event.preventDefault();
+      apiRateZAR();
     });
   });
 });
