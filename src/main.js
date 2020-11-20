@@ -5,27 +5,48 @@ import './css/styles.css';
 import CurrencyConverter from './currency-service.js';
 
 
+function outputMars(response) {
+  if (response.conversion_rates){
+    $("#mars-output").html(`Median temperature on Mars is ${response.conversion_rates.EUR} degrees.`);
+  } else {
+    $("#mars-output").html(`${response}`);
+  }
+}
 
 
+async function apiMarsWeather() {
+  const response = await CurrencyConverter.getUsdEur();
+  outputMars(response);
+}
 
+$(document).ready(function () {
 
-
-
-
-
-
-
-
-
-
-
-$(document).ready(function() {
-  $('#weatherLocation').click(function() {
-    let userInput = parseInt($("input#userDollar").val());
-    clearFields();
-    makeApiCall(city);
+  $("#mars-weather").click(function () {
+    event.preventDefault();
+    apiMarsWeather();
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $(document).ready(function() {
+//   $('#weatherLocation').click(function() {
+//     let userInput = parseInt($("input#userDollar").val());
+//     clearFields();
+//     makeApiCall(city);
+//   });
+// });
 
 
 
