@@ -7,9 +7,9 @@ import CurrencyConverter from './currency-service.js';
 
 function outputMars(response) {
   if (response.conversion_rates){
-    $("#mars-output").html(`Median temperature on Mars is ${response.conversion_rates.EUR} degrees.`);
+    $("#currency-output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN} lev.`);
   } else {
-    $("#mars-output").html(`${response}`);
+    $("#currency-output").html(`${response}`);
   }
 }
 
@@ -21,7 +21,7 @@ async function apiMarsWeather() {
 
 $(document).ready(function () {
 
-  $("#mars-weather").click(function () {
+  $("#convert-button").click(function () {
     event.preventDefault();
     apiMarsWeather();
   });
