@@ -5,29 +5,39 @@ import './css/styles.css';
 import CurrencyConverter from './currency-service.js';
 
 
-function outputMars(response) {
+function getRate(response) {
   if (response.conversion_rates){
-    $("#currency-output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN} lev.`);
+    $("#currency-output").html(`The current exchange rate for BGN is ${response.conversion_rates.USD} lev.`);
   } else {
     $("#currency-output").html(`${response}`);
   }
+  
 }
 
 
-async function apiMarsWeather() {
+async function apiRate() {
   const response = await CurrencyConverter.getUsdEur();
-  outputMars(response);
+  getRate(response);
 }
 
 $(document).ready(function () {
 
   $("#convert-button").click(function () {
     event.preventDefault();
-    apiMarsWeather();
+    apiRate();
   });
 });
 
 
+
+// function getRate(response) {
+//   if (response.conversion_rates){
+//     $("#currency-output").html(`The current exchange rate for BGN is ${response.conversion_rates.BGN} lev.`);
+//   } else {
+//     $("#currency-output").html(`${response}`);
+//   }
+  
+// }
 
 
 
