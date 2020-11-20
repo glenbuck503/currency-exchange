@@ -4,52 +4,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import CurrencyConverter from './currency-service.js';
 
-// function clearFields() {
-//   $('#location').val("");
-//   $('.showErrors').text("");
-//   $('.eurosFromDollars').text("");
- 
-// }
-
-// function getElements(response) {
-//   if (response.main) {
-//     $('.eurosFromDollars').text(`Your inputted amount from USD to EUR is ${response.name} is ${response.conversion_rates.humidity}%`);
-//   } else {
-//     $('.showErrors').text(`There was an error: ${response}`);
-//   }
-// }
-
-// async function makeApiCall() {
-//   const response = await WeatherService.getWeather(city);
-//   getElements(response);
-// }
 
 
-function outputUSD(response) {
-  if (response.conversion_rates){
-    $("#USDoutput").html(`Conversion ${response.conversion_rates.USD} degrees.`);
-  } else {
-    $("#USDoutput").html(`${response}`);
-  }
-}
 
-async function apiCallConvert() {
-  const response = await CurrencyConverter.getUsdEur();
-  outputUSD(response);
-}
+
+
+
+
+
+
+
+
+
+
+
 
 $(document).ready(function() {
-  // $('#USDtoEUR').click(function() {
-  //   let euros = parseInt($("#dollarToEuro").val());
-  //   clearFields();
-  //   makeApiCall(city);
-  // });
-  $("#USDtoEUR").click(function () {
-    event.preventDefault();
-    apiCallConvert();
+  $('#weatherLocation').click(function() {
+    let userInput = parseInt($("input#userDollar").val());
+    clearFields();
+    makeApiCall(city);
   });
 });
-
 
 
 

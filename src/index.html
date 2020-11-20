@@ -9,17 +9,19 @@
       <h3>Please select a currenct to convert USD to:</h3>
       <div class="currencySelect">
         <select id="size">
-          <option value= "small">BGN Bulgarian lev</option>
-          <option value= "medium">NOK Norwegian Krone</option>
-          <option value= "large">RUB Russian Ruble</option>
-          <option value= "medium">ZAR South African Rand</option>
-          <option value= "large">SEK Swedish Krona</option>
+          <option value= "BGN">BGN Bulgarian lev</option>
+          <option value= "NOK">NOK Norwegian Krone</option>
+          <option value= "RUB">RUB Russian Ruble</option>
+          <option value= "ZAR">ZAR South African Rand</option>
+          <option value= "SEK">SEK Swedish Krona</option>
         </select>
       </div>
-      <hr>
       <div class="userInput">
-        <label for="userAmount">Enter USD amount:</label>
-        <input id="userAmount" type="number">
+        <label for="userDollar">Enter USD amount to be converted:</label>
+        <input id="userDollar" type="number">
+      </div>
+      <div class="buttonDiv">
+        <button class = "btn btn-danger" type="submit" class="btn">Convert now!</button>
       </div>
     </form>
   </div>
