@@ -14,7 +14,7 @@ function getRateBGN(response) {
 }
 
 function getRateNOK(response) {
-  let norw = parseInt($("#userDollar2").val());
+  let norw = parseFloat($("#userDollar2").val());
   if (response.conversion_rates){
     $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} Krone.`);
   } else {
@@ -23,7 +23,7 @@ function getRateNOK(response) {
 }
 
 function getRateRUB(response) {
-  let rub = parseInt($("#userDollar3").val());
+  let rub = parseFloat($("#userDollar3").val());
   if (response.conversion_rates){
     $(".output3").html(`The exchange rate from USD to RUB is ${response.conversion_rates.RUB * rub} Ruble.`);
   } else {
@@ -32,7 +32,7 @@ function getRateRUB(response) {
 }
 
 function getRateSEK(response) {
-  let sek = parseInt($("#userDollar4").val());
+  let sek = parseFloat($("#userDollar4").val());
   if (response.conversion_rates){
     $(".output4").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * sek} Krona.`);
   } else {
@@ -41,7 +41,7 @@ function getRateSEK(response) {
 }
 
 function getRateZAR(response) {
-  let zar = parseInt($("#userDollar5").val());
+  let zar = parseFloat($("#userDollar5").val());
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * zar} Rand.`);
   } else {
@@ -89,7 +89,7 @@ $(document).ready(function () {
 
   $("#exchange2").click(function () {
     event.preventDefault();
-    let userInput2 = parseInt($("#userDollar2").val());
+    let userInput2 = parseFloat($("#userDollar2").val());
     $(".output2").html(userInput2);
     
     $("#convert-button2").click(function () {
@@ -100,7 +100,7 @@ $(document).ready(function () {
 
   $("#exchange3").click(function () {
     event.preventDefault();
-    let userInput3 = parseInt($("#userDollar3").val());
+    let userInput3 = parseFloat($("#userDollar3").val());
     $(".output3").html(userInput3);
     
     $("#convert-button3").click(function () {
@@ -111,7 +111,7 @@ $(document).ready(function () {
 
   $("#exchange4").click(function () {
     event.preventDefault();
-    let userInput4 = parseInt($("#userDollar4").val());
+    let userInput4 = parseFloat($("#userDollar4").val());
     $(".output4").html(userInput4);
     
     $("#convert-button4").click(function () {

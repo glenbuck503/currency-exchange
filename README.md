@@ -8,22 +8,6 @@
 
 This application will let a user convert any amount in US Dollars to either Bulgarian lev, Norwegian Krone, Russian Ruble, Swedish Krona or South African Rand. It will show the user the current exchange rate for the selected country.
 
-### Tests
-
-test: gather users selected pizza size
-expect: let size = \$("select#size").val();
-
-test: gather users selections for toppings and push into an empty array
-expect: let toppings = []; $("input:checkbox[name=topping]:checked").each(function() {
-      toppings.push($(this).val());
-});
-
-test: add function to add the total price. Size and toppings
-exepct: let price.toEqual(totalPrice)
-
-test: show user total price
-expect: (output).text(totalPrice)
-
 ## Retrieving API Key Instructions
 
 - go to https://www.exchangerate-api.com/
@@ -48,7 +32,7 @@ expect: (output).text(totalPrice)
 
 ## Known Bugs
 
-_Does not convert decimal values _. 12/20/2020
+No Known bugs 11/20/2020
 
 If you are using a version of Jest where the coverage directory is not automatically generated, you will need to update package.json file:
 
