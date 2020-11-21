@@ -8,6 +8,10 @@
     "start": "npm run build; webpack-dev-server --open --mode development",
     "lint": "eslint src/*.js",
     "test": "jest --coverage"
+    
+
+
+
   },
   "keywords": [],
   "author": "",
