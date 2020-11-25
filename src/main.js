@@ -9,7 +9,7 @@ function getRateBGN(response) {
   if (response.conversion_rates){
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * name} lev.`);
   } else {
-    $(".output").html(`${response}`);
+    $(".output").html(response);
   }
 }
 
@@ -18,7 +18,7 @@ function getRateNOK(response) {
   if (response.conversion_rates){
     $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} Krone.`);
   } else {
-    $(".output2").html(`${response}`);
+    $(".output2").html(`${response.error}`);
   }
 }
 
@@ -27,7 +27,7 @@ function getRateRUB(response) {
   if (response.conversion_rates){
     $(".output3").html(`The exchange rate from USD to RUB is ${response.conversion_rates.RUB * rub} Ruble.`);
   } else {
-    $(".output3").html(`${response}`);
+    $(".output3").html(`${response.error}`);
   }
 }
 
@@ -45,7 +45,7 @@ function getRateZAR(response) {
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * zar} Rand.`);
   } else {
-    $(".output5").html(`${response}`);
+    $(".output5").html(`${response.error}`);
   }
 }
 
