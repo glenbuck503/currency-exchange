@@ -1,3 +1,4 @@
+
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +10,7 @@ function getRateBGN(response) {
   if (response.conversion_rates){
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * name} lev.`);
   } else {
-    $(".output").html(`${response.error}`);
+    $(".output").html(response);
   }
 }
 
@@ -49,15 +50,6 @@ function getRateZAR(response) {
   }
 }
 
-function noCurrency(response) {
-  let not = parseFloat($("#userDollar6").val());
-  if (response.conversion_rates){
-    $(".output6").html(`The exchange rate from USD to SEK is ${response.conversion_rates.JJJ * not} Rand.`);
-  } else {
-    $(".output6").html(`${response.error}`);
-  }
-}
-
 
 async function apiRateBGN() {
   const response = await CurrencyConverter.getUSD();
@@ -82,11 +74,6 @@ async function apiRateSEK() {
 async function apiRateZAR() {
   const response = await CurrencyConverter.getUSD();
   getRateZAR(response);
-}
-
-async function apiNone() {
-  const response = await CurrencyConverter.getUSD();
-  noCurrency(response);
 }
 
 $(document).ready(function () {
@@ -144,29 +131,7 @@ $(document).ready(function () {
       apiRateZAR();
     });
   });
-
-  $("#exchange6").click(function () {
-    event.preventDefault();
-    let userInput6 = parseFloat($("#userDollar6").val());
-    $(".output6").html(userInput6);
-    
-    $("#convert-button6").click(function () {
-      event.preventDefault();
-      apiNone();
-    });
-  });
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
