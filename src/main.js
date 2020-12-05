@@ -10,7 +10,7 @@ function getRateBGN(response) {
   if (response.conversion_rates){
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * name} lev.`);
   } else {
-    $(".output").html(response);
+    $(".outputErr").html(`There was an error: ${response.message}`);
   }
 }
 
@@ -44,11 +44,12 @@ function getRateSEK(response) {
 function getRateZAR(response) {
   let zar = parseFloat($("#userDollar5").val());
   if (response.conversion_rates){
-    $(".output5").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * zar} Rand.`);
+    $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else {
-    $(".output5").html(`${response.error}`);
+    $(".output5").html(`${response.message}`);
   }
 }
+
 
 
 async function apiRateBGN() {
