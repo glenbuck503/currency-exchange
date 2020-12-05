@@ -9,7 +9,7 @@ function getRateBGN(response) {
   if (response.conversion_rates){
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * name} lev.`);
   } else {
-    $(".output").html(response);
+    $(".output").html(`${response.error}`);
   }
 }
 
