@@ -50,6 +50,15 @@ function getRateZAR(response) {
   }
 }
 
+function getRateError(response) {
+  let err = parseFloat($("#userDollar6").val());
+  if (response.conversion_rates || err > 0){
+    $(".output6").html(`Sorry. This currency is not available ${response.error}`);
+  } else {
+    $(".output6").html();
+  }
+}
+
 
 
 async function apiRateBGN() {
@@ -75,6 +84,11 @@ async function apiRateSEK() {
 async function apiRateZAR() {
   const response = await CurrencyConverter.getUSD();
   getRateZAR(response);
+}
+
+async function apiRateErr() {
+  const response = await CurrencyConverter.getUSD();
+  getRateError(response);
 }
 
 $(document).ready(function () {
@@ -130,6 +144,17 @@ $(document).ready(function () {
     $("#convert-button5").click(function () {
       event.preventDefault();
       apiRateZAR();
+    });
+  });
+
+  $("#exchange6").click(function () {
+    event.preventDefault();
+    let userInput6 = parseFloat($("#userDollar6").val());
+    $(".output6").html(userInput6);
+    
+    $("#convert-button6").click(function () {
+      event.preventDefault();
+      apiRateErr();
     });
   });
 });
