@@ -51,11 +51,11 @@ function getRateZAR(response) {
 }
 
 function getRateError(response) {
-  let err = parseFloat($("#userDollar6").val());
-  if (!response.conversion_rates.ok){
-    $(".Errors").html(`Sorry. This currency ${err} is not available ${response.message}`);
+  let fail = parseFloat($("#userDollar6").val());
+  if (response.base_code === "USD"){
+    $(".showErrors").html(`Sorry, we do not convert Panamanian Balboa at this time Your ${fail} dollars will not be converted as of now. ${response.message}`);
   } else {
-    $(".output6").html(`There was an error: ${response.messgae}`);
+    $(".output6").html(`There was an error: ${response.error}`);
   }
 }
 
