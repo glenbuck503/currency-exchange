@@ -46,16 +46,16 @@ function getRateZAR(response) {
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else {
-    $(".output5").html(`${response}`);
+    $(".output5").html(`Error :${response.status}`);
   }
 }
 
 function getRateError(response) {
   let fail = parseFloat($("#userDollar6").val());
-  if (response.base_code === "USD"){
-    $(".showErrors").html(`Sorry, we do not convert Panamanian Balboa at this time Your ${fail} dollars will not be converted as of now. ${response.message}`);
+  if (response.conversion_rates && fail > 0){
+    $(".output6").html(`Sorry, we do not convert Panamanian Balboa at this time. Your ${fail} dollars will not be converted as of now.`);
   } else {
-    $(".output6").html(`There was an error: ${response.error}`);
+    $(".showErrors").html(`There was an error: ${response.error}`);
   }
 }
 
@@ -86,8 +86,8 @@ async function apiRateZAR() {
   getRateZAR(response);
 }
 
-async function apiRateErr(userInput6) {
-  const response = await CurrencyConverter.getUSD(userInput6);
+async function apiRateErr() {
+  const response = await CurrencyConverter.getUSD();
   getRateError(response)
 }
 
@@ -154,7 +154,7 @@ $(document).ready(function () {
     
     $("#convert-button6").click(function () {
       event.preventDefault();
-      apiRateErr(userInput6);
+      apiRateErr();
     });
   });
 });
