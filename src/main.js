@@ -46,16 +46,16 @@ function getRateZAR(response) {
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else {
-    $(".output5").html(`${response.message}`);
+    $(".output5").html(`${response}`);
   }
 }
 
 function getRateError(response) {
   let err = parseFloat($("#userDollar6").val());
-  if (response.conversion_rates || err > 0){
-    $(".output6").html(`Sorry. This currency is not available ${response.error}`);
+  if (response.conversion_rates){
+    $(".output6").html(`Sorry. This currency ${err}  is not available ${conversion_rates}`);
   } else {
-    $(".output6").html();
+    $(".showErrors").html(`There was an error: ${response.message}`);
   }
 }
 
@@ -86,9 +86,9 @@ async function apiRateZAR() {
   getRateZAR(response);
 }
 
-async function apiRateErr() {
-  const response = await CurrencyConverter.getUSD();
-  getRateError(response);
+async function apiRateErr(userInput6) {
+  const response = await CurrencyConverter.getUSD(userInput6);
+  getRateError(response)
 }
 
 $(document).ready(function () {
@@ -154,7 +154,7 @@ $(document).ready(function () {
     
     $("#convert-button6").click(function () {
       event.preventDefault();
-      apiRateErr();
+      apiRateErr(userInput6);
     });
   });
 });
