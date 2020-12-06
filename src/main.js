@@ -8,12 +8,13 @@ import CurrencyConverter from './currency-service.js';
 function getRateBGN(response) {
   let bgn = parseFloat($("#userDollar").val());
   if (response.conversion_rates){
-    if (isNaN(response.conversion_rates[bgn])){
-      $('#outputErr').html('This currency is not available');
+    if (isNaN(response.conversion_rates.bgn)){
+      $(".outputErr").html(`This currency is not available at this time.`);
     } 
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * bgn} lev.`);
   } else {
-    $(".outputErr").html(`There was an error: ${response.message}`);
+    $(".outputErr").html(`Error: ${response.message}`);
+    
   }
 }
 
