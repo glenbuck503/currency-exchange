@@ -53,9 +53,9 @@ function getRateZAR(response) {
 function getRateError(response) {
   let err = parseFloat($("#userDollar6").val());
   if (!response.conversion_rates.ok){
-    $(".output6").html(`Sorry. This currency ${err} is not available ${response.message}`);
+    $(".Errors").html(`Sorry. This currency ${err} is not available ${response.message}`);
   } else {
-    $(".showErrors").html(`There was an error: ${response.messgae}`);
+    $(".output6").html(`There was an error: ${response.messgae}`);
   }
 }
 
