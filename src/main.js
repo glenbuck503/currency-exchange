@@ -22,7 +22,7 @@ function getRateNOK(response) {
   if (response.conversion_rates){
     $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} Krone.`);
   } else {
-    $(".output2").html(`${response.error}`);
+    $(".output2").html(`${response.message}`);
   }
 }
 
@@ -31,7 +31,7 @@ function getRateRUB(response) {
   if (response.conversion_rates){
     $(".output3").html(`The exchange rate from USD to RUB is ${response.conversion_rates.RUB * rub} Ruble.`);
   } else {
-    $(".output3").html(`${response.error}`);
+    $(".output3").html(`${response.message}`);
   }
 }
 
@@ -40,7 +40,7 @@ function getRateSEK(response) {
   if (response.conversion_rates){
     $(".output4").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * sek} Krona.`);
   } else {
-    $(".output4").html(`${response}`);
+    $(".output4").html(`${response.message}`);
   }
 }
 
@@ -52,16 +52,6 @@ function getRateZAR(response) {
     $(".output5").html(`Error :${response.message}`);
   }
 }
-
-function getRateError(response) {
-  let fail = parseFloat($("#userDollar6").val());
-  if (response.base_code != "CAD" ){ 
-    $(".output6").html(`Sorry, we do not convert to Canadian Dollars at this time. Your ${fail} dollars will not be converted as of now.`);
-  } else {
-    $(".showErrors").html(`There was an error: ${response}`);
-  }
-}
-
 
 
 async function apiRateBGN() {
@@ -90,10 +80,6 @@ async function apiRateZAR() {
   getRateZAR(response);
 }
 
-async function apiRateErr() {
-  const response = await CurrencyConverter.getUSD();
-  getRateError(response)
-}
 
 $(document).ready(function () {
   $("#exchange").click(function () {
@@ -148,17 +134,6 @@ $(document).ready(function () {
     $("#convert-button5").click(function () {
       event.preventDefault();
       apiRateZAR();
-    });
-  });
-
-  $("#exchange6").click(function () {
-    event.preventDefault();
-    let userInput6 = parseFloat($("#userDollar6").val());
-    $(".output6").html(userInput6);
-    
-    $("#convert-button6").click(function () {
-      event.preventDefault();
-      apiRateErr();
     });
   });
 });
