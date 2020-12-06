@@ -22,7 +22,7 @@ function getRateNOK(response) {
   if (response.conversion_rates){
     $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} Krone.`);
   } else {
-    $(".output2").html(`${response.message}`);
+    $(".output2").html(`${response.error}`);
   }
 }
 
@@ -31,7 +31,7 @@ function getRateRUB(response) {
   if (response.conversion_rates){
     $(".output3").html(`The exchange rate from USD to RUB is ${response.conversion_rates.RUB * rub} Ruble.`);
   } else {
-    $(".output3").html(`${response.message}`);
+    $(".output3").html(`${response.error}`);
   }
 }
 
@@ -40,7 +40,7 @@ function getRateSEK(response) {
   if (response.conversion_rates){
     $(".output4").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * sek} Krona.`);
   } else {
-    $(".output4").html(`${response.message}`);
+    $(".output4").html(`${response}`);
   }
 }
 
@@ -52,6 +52,8 @@ function getRateZAR(response) {
     $(".output5").html(`Error :${response.message}`);
   }
 }
+
+
 
 
 async function apiRateBGN() {
