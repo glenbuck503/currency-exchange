@@ -6,9 +6,12 @@ import './css/styles.css';
 import CurrencyConverter from './currency-service.js';
 
 function getRateBGN(response) {
-  let name = parseFloat($("#userDollar").val());
+  let bgn = parseFloat($("#userDollar").val());
   if (response.conversion_rates){
-    $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * name} lev.`);
+    if (isNaN(response.conversion_rates[bgn])){
+      $('#outputErr').html('This currency is not available');
+    } 
+    $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * bgn} lev.`);
   } else {
     $(".outputErr").html(`There was an error: ${response.message}`);
   }
@@ -46,16 +49,16 @@ function getRateZAR(response) {
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else {
-    $(".output5").html(`Error :${response.status}`);
+    $(".output5").html(`Error :${response.message}`);
   }
 }
 
 function getRateError(response) {
   let fail = parseFloat($("#userDollar6").val());
-  if (response.conversion_rates && fail > 0){
-    $(".output6").html(`Sorry, we do not convert Panamanian Balboa at this time. Your ${fail} dollars will not be converted as of now.`);
+  if (response.base_code != "CAD" ){ 
+    $(".output6").html(`Sorry, we do not convert to Canadian Dollars at this time. Your ${fail} dollars will not be converted as of now.`);
   } else {
-    $(".showErrors").html(`There was an error: ${response.error}`);
+    $(".showErrors").html(`There was an error: ${response}`);
   }
 }
 
@@ -63,6 +66,7 @@ function getRateError(response) {
 
 async function apiRateBGN() {
   const response = await CurrencyConverter.getUSD();
+
   getRateBGN(response);
 }
 
