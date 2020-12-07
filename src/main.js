@@ -96,9 +96,7 @@ async function apiRateZAR() {
 $(document).ready(function () {
   $("#exchange").click(function () {
     event.preventDefault();
-    let userInput = parseFloat($("#userDollar").val());
-    $(".output").html(userInput);
-
+   
     $("#convert-button1").click(function () {
       event.preventDefault();
       apiRateBGN();
@@ -107,9 +105,6 @@ $(document).ready(function () {
 
   $("#exchange2").click(function () {
     event.preventDefault();
-    let userInput2 = parseFloat($("#userDollar2").val());
-    $(".output2").html(userInput2);
-    
     $("#convert-button2").click(function () {
       event.preventDefault();
       apiRateNOK();
@@ -118,9 +113,6 @@ $(document).ready(function () {
 
   $("#exchange3").click(function () {
     event.preventDefault();
-    let userInput3 = parseFloat($("#userDollar3").val());
-    $(".output3").html(userInput3);
-    
     $("#convert-button3").click(function () {
       event.preventDefault();
       apiRateRUB();
@@ -129,9 +121,6 @@ $(document).ready(function () {
 
   $("#exchange4").click(function () {
     event.preventDefault();
-    let userInput4 = parseFloat($("#userDollar4").val());
-    $(".output4").html(userInput4);
-    
     $("#convert-button4").click(function () {
       event.preventDefault();
       apiRateSEK();
@@ -140,9 +129,6 @@ $(document).ready(function () {
 
   $("#exchange5").click(function () {
     event.preventDefault();
-    let userInput5 = parseFloat($("#userDollar5").val());
-    $(".output5").html(userInput5);
-    
     $("#convert-button5").click(function () {
       event.preventDefault();
       apiRateZAR();
@@ -151,9 +137,6 @@ $(document).ready(function () {
 
   $("#exchange6").click(function () {
     event.preventDefault();
-    let userInput6 = parseFloat($("#userDollar6").val());
-    $(".output6").html(userInput6);
-    
     $("#convert-button6").click(function () {
       event.preventDefault();
       apiRateUUU();
