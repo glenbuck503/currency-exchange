@@ -47,7 +47,7 @@ function getRateZAR(response) {
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else{
     $(".output5").html(`There was an error :${response['error-type']}`);
-    // $(".output5").html(`There was an error :${response}`);
+    $(".output5").html(`There was an error :${response}`);
   }
 }
 
@@ -144,18 +144,6 @@ $(document).ready(function () {
     });
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
