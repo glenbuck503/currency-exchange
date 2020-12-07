@@ -45,7 +45,7 @@ function getRateZAR(response) {
   let zar = parseFloat($("#userDollar5").val());
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
-  } else  {
+  } else{
     $(".output5").html(`There was an error :${response['error-type']}`);
     // $(".output5").html(`There was an error :${response}`);
   }
@@ -58,7 +58,8 @@ function getRateUUU(response) {
     } 
   } else {
     $(".outputErr6").html(`There was an error: ${response['error-type']}`);
-  }
+    $(".outputErr7").html(`There was an error: ${response}`);
+  } 
 }
 async function apiRateUUU() {
   const response = await CurrencyConverter.getUSD();
