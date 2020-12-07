@@ -1,4 +1,3 @@
-
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,12 +7,9 @@ import CurrencyConverter from './currency-service.js';
 function getRateBGN(response) {
   let bgn = parseFloat($("#userDollar").val());
   if (response.conversion_rates){
-    if (isNaN(response.conversion_rates.bgn)){
-    $(".outputErr").html(`This currency is not available at this time.`);
-    }
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * bgn} lev.`);
   } else {
-    $(".outputErr").html(`Error: ${response['error-type']}`);
+    $(".outputErr").html(`There was an error: ${response['error-type']}`);
     
   }
 }
@@ -21,12 +17,9 @@ function getRateBGN(response) {
 function getRateNOK(response) {
   let norw = parseFloat($("#userDollar2").val());
   if (response.conversion_rates){
-    if (isNaN(response.conversion_rates.NOK)){
-      $(".outputErr2").html(`This currency is not available at this time.`);
-    } 
     $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} Krone.`);
   } else {
-    $(".outputErr2").html(`$${response['error-type']}`);
+    $(".outputErr2").html(`There was an error: ${response['error-type']}`);
   }
 }
 
@@ -35,7 +28,7 @@ function getRateRUB(response) {
   if (response.conversion_rates){
     $(".output3").html(`The exchange rate from USD to RUB is ${response.conversion_rates.RUB * rub} Ruble.`);
   } else {
-    $(".output3").html(`${response['error-type']}`);
+    $(".output3").html(`There was an error: ${response['error-type']}`);
   }
 }
 
@@ -44,7 +37,7 @@ function getRateSEK(response) {
   if (response.conversion_rates){
     $(".output4").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * sek} Krona.`);
   } else {
-    $(".output4").html(`${response['error-type']}`);
+    $(".output4").html(`There was an error: ${response['error-type']}`);
   }
 }
 
@@ -53,8 +46,24 @@ function getRateZAR(response) {
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else {
-    $(".output5").html(`Error :${response['error-type']}`);
+    $(".output5").html(`There was an error :${response['error-type']}`);
   }
+}
+
+function getRateUUU(response) {
+  let uuu = parseFloat($("#userDollar2").val());
+  if (response.conversion_rates){
+    if (isNaN(response.conversion_rates.uuu)){
+      $(".outputErr6").html(`This currency is not available at this time Your ${uuu} will not be converted.`);
+    } 
+  } else {
+    $(".outputErr6").html(`There was an error: ${response['error-type']}`);
+  }
+}
+async function apiRateUUU() {
+  const response = await CurrencyConverter.getUSD();
+
+  getRateUUU(response);
 }
 
 async function apiRateBGN() {
@@ -139,16 +148,18 @@ $(document).ready(function () {
       apiRateZAR();
     });
   });
+
+  $("#exchange6").click(function () {
+    event.preventDefault();
+    let userInput6 = parseFloat($("#userDollar6").val());
+    $(".output6").html(userInput6);
+    
+    $("#convert-button6").click(function () {
+      event.preventDefault();
+      apiRateUUU();
+    });
+  });
 });
-
-
-
-
-
-
-
-
-
 
 
 
