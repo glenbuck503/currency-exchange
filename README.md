@@ -17,7 +17,7 @@ This application will let a user convert any amount in US Dollars to either Bulg
 
 ## Setup/Installation Requirements
 
-- Go to https://github.com/glenbuck503/pizza
+- Go to https://github.com/glenbuck503/currency-exchange
 - Go to the middle upper right corner where the green box that says "Code" and click it.
 - Copy the HTTPs site to your clipboard.
 - Open terminal or bash and get to the directory you want to download the repo to.
@@ -28,7 +28,7 @@ This application will let a user convert any amount in US Dollars to either Bulg
   _ Open the project directory in VS Code
   _ Navigate to your terminal and get to your projects root directory.
   _ Type in " touch .env" and hit enter - this will create a .env file in your directory.
-  _ Add .env file to .gitignore file. \* Add API Key in .env file and label it " API_KEY=(your key here).
+  _ Add .env file to .gitignore file. Add API Key in .env file and label it " API_KEY=(your key here).
 
 ## Known Bugs
 
