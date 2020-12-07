@@ -45,16 +45,16 @@ function getRateZAR(response) {
   let zar = parseFloat($("#userDollar5").val());
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
-  } else {
+  } else  {
     $(".output5").html(`There was an error :${response['error-type']}`);
+    // $(".output5").html(`There was an error :${response}`);
   }
 }
 
 function getRateUUU(response) {
-  let uuu = parseFloat($("#userDollar2").val());
   if (response.conversion_rates){
     if (isNaN(response.conversion_rates.uuu)){
-      $(".outputErr6").html(`This currency is not available at this time Your ${uuu} will not be converted.`);
+      $(".outputErr6").html(`This currency is not available at this time.`);
     } 
   } else {
     $(".outputErr6").html(`There was an error: ${response['error-type']}`);
