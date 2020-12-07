@@ -9,11 +9,11 @@ function getRateBGN(response) {
   let bgn = parseFloat($("#userDollar").val());
   if (response.conversion_rates){
     if (isNaN(response.conversion_rates.bgn)){
-      $(".outputErr").html(`This currency is not available at this time.`);
-    } 
+    $(".outputErr").html(`This currency is not available at this time.`);
+    }
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * bgn} lev.`);
   } else {
-    $(".outputErr").html(`Error: ${response.message}`);
+    $(".outputErr").html(`Error: ${response['error-type']}`);
     
   }
 }
@@ -26,7 +26,7 @@ function getRateNOK(response) {
     } 
     $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} Krone.`);
   } else {
-    $(".outputErr2").html(`${response.error}`);
+    $(".outputErr2").html(`$${response['error-type']}`);
   }
 }
 
@@ -35,7 +35,7 @@ function getRateRUB(response) {
   if (response.conversion_rates){
     $(".output3").html(`The exchange rate from USD to RUB is ${response.conversion_rates.RUB * rub} Ruble.`);
   } else {
-    $(".output3").html(`${response.message}`);
+    $(".output3").html(`${response['error-type']}`);
   }
 }
 
@@ -44,7 +44,7 @@ function getRateSEK(response) {
   if (response.conversion_rates){
     $(".output4").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * sek} Krona.`);
   } else {
-    $(".output4").html(`${response.message}`);
+    $(".output4").html(`${response['error-type']}`);
   }
 }
 
@@ -53,7 +53,7 @@ function getRateZAR(response) {
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else {
-    $(".output5").html(`Error :${response.message}`);
+    $(".output5").html(`Error :${response['error-type']}`);
   }
 }
 
