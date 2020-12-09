@@ -9,7 +9,8 @@ function getRateBGN(response) {
   if (response.conversion_rates){
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * bgn} lev.`);
   } else {
-    $(".outputErr").html(`There was an error: ${response['error-type']}`);
+    $(".codeError").html(`There was an error: ${response['error-type']}`);
+    $(".fetchError").html(`There was an error :${response}`);
     
   }
 }
@@ -19,7 +20,8 @@ function getRateNOK(response) {
   if (response.conversion_rates){
     $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} Krone.`);
   } else {
-    $(".outputErr2").html(`There was an error: ${response['error-type']}`);
+    $(".codeError2").html(`There was an error: ${response['error-type']}`);
+    $(".fetchError2").html(`There was an error :${response}`);
   }
 }
 
@@ -28,7 +30,9 @@ function getRateRUB(response) {
   if (response.conversion_rates){
     $(".output3").html(`The exchange rate from USD to RUB is ${response.conversion_rates.RUB * rub} Ruble.`);
   } else {
-    $(".output3").html(`There was an error: ${response['error-type']}`);
+    $(".codeError3").html(`There was an error: ${response['error-type']}`);
+    $(".fetchError3").html(`There was an error :${response}`);
+    
   }
 }
 
@@ -37,7 +41,8 @@ function getRateSEK(response) {
   if (response.conversion_rates){
     $(".output4").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * sek} Krona.`);
   } else {
-    $(".output4").html(`There was an error: ${response['error-type']}`);
+    $(".codeError4").html(`There was an error: ${response['error-type']}`);
+    $(".fetchError4").html(`There was an error :${response}`);
   }
 }
 
@@ -46,30 +51,30 @@ function getRateZAR(response) {
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else{
-    $(".output5").html(`There was an error :${response['error-type']}`);
-    $(".output5").html(`There was an error :${response}`);
+    $(".codeError5").html(`There was an error :${response['error-type']}`);
+    $(".fetchError5").html(`There was an error :${response}`);
+    
+    
   }
 }
-
 function getRateUUU(response) {
   if (response.conversion_rates){
     if (isNaN(response.conversion_rates.uuu)){
-      $(".outputErr6").html(`This currency is not available at this time.`);
+      $(".outputErr6").html(`This currency is not available at this time.${response}.`);
     } 
   } else {
-    $(".outputErr6").html(`There was an error: ${response['error-type']}`);
-    $(".outputErr7").html(`There was an error: ${response}`);
+    $(".codeError6").html(`There was an error: ${response['error-type']}`);
+    $(".fetchError6").html(`There was an error: ${response}`);
   } 
 }
+
 async function apiRateUUU() {
   const response = await CurrencyConverter.getUSD();
-
   getRateUUU(response);
 }
 
 async function apiRateBGN() {
   const response = await CurrencyConverter.getUSD();
-
   getRateBGN(response);
 }
 
