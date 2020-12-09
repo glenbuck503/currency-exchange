@@ -9,7 +9,7 @@ function getRateBGN(response) {
   if (response.conversion_rates){
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * bgn} lev.`);
   } else {
-    $(".codeError").html(`There was an error: ${response['error-type']}`);
+    $(".codeError").html(`This currency is not supported at this time. Error :${response['error-type']}`);
     $(".fetchError").html(`There was an error :${response}`);
     
   }
@@ -20,7 +20,7 @@ function getRateNOK(response) {
   if (response.conversion_rates){
     $(".output2").html(`The exchange rate from USD to NOK is ${response.conversion_rates.NOK * norw} Krone.`);
   } else {
-    $(".codeError2").html(`There was an error: ${response['error-type']}`);
+    $(".codeError2").html(`This currency is not supported at this time. Error :${response['error-type']}`);
     $(".fetchError2").html(`There was an error :${response}`);
   }
 }
@@ -30,7 +30,7 @@ function getRateRUB(response) {
   if (response.conversion_rates){
     $(".output3").html(`The exchange rate from USD to RUB is ${response.conversion_rates.RUB * rub} Ruble.`);
   } else {
-    $(".codeError3").html(`There was an error: ${response['error-type']}`);
+    $(".codeError3").html(`This currency is not supported at this time. Error :${response['error-type']}`);
     $(".fetchError3").html(`There was an error :${response}`);
     
   }
@@ -41,7 +41,7 @@ function getRateSEK(response) {
   if (response.conversion_rates){
     $(".output4").html(`The exchange rate from USD to SEK is ${response.conversion_rates.SEK * sek} Krona.`);
   } else {
-    $(".codeError4").html(`There was an error: ${response['error-type']}`);
+    $(".codeError4").html(`This currency is not supported at this time. Error :${response['error-type']}`);
     $(".fetchError4").html(`There was an error :${response}`);
   }
 }
@@ -51,8 +51,8 @@ function getRateZAR(response) {
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else{
-    $(".codeError5").html(`This currency is not supported at this time.:${response['error-type']}`);
-    $(".fetchError5").html(`There was an error :${response}`);
+    $(".codeError5").html(`This currency is not supported at this time. Error :${response['error-type']}`);
+    $(".fetchError5").html(`There was an error in the API call :${response}`);
     
     
   }
@@ -60,7 +60,7 @@ function getRateZAR(response) {
 function getRateUUU(response) {
   if (response.conversion_rates){
     if (isNaN(response.conversion_rates.uuu)){
-      $(".outputErr6").html(`This currency is not available at this time.${response}.`);
+      $(".outputErr6").html(`This currency is not supported at this time. Error :${response['error-type']}`);
     } 
   } else {
     $(".codeError6").html(`This currency is not supported at this time. ${response['error-type']}`);
