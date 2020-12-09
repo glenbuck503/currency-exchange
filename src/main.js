@@ -51,7 +51,7 @@ function getRateZAR(response) {
   if (response.conversion_rates){
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else{
-    $(".codeError5").html(`There was an error :${response['error-type']}`);
+    $(".codeError5").html(`This currency is not supported at this time.:${response['error-type']}`);
     $(".fetchError5").html(`There was an error :${response}`);
     
     
@@ -63,7 +63,7 @@ function getRateUUU(response) {
       $(".outputErr6").html(`This currency is not available at this time.${response}.`);
     } 
   } else {
-    $(".codeError6").html(`There was an error: ${response['error-type']}`);
+    $(".codeError6").html(`This currency is not supported at this time. ${response['error-type']}`);
     $(".fetchError6").html(`There was an error: ${response}`);
   } 
 }
