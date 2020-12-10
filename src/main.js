@@ -10,6 +10,7 @@ function getRateBGN(response) {
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * bgn} lev.`);
   } else {
     $(".codeError").html(`This currency is not supported at this time. Error :${response['error-type']}`);
+    $(".fetchError").html(`There was an error :${response}`);
   }
 }
 
@@ -50,16 +51,13 @@ function getRateZAR(response) {
     $(".output5").html(`The exchange rate from USD to ZAR is ${response.conversion_rates.ZAR * zar} Rand.`);
   } else{
     $(".codeError5").html(`This currency is not supported at this time. Error :${response['error-type']}`);
-    $(".fetchError5").html(`There was an error in the API call :${response}`);
   }
 }
 
 async function apiRateBGN() {
   const response = await CurrencyConverter.getUSD();
-  if (response === typeof Error) {
-  $(".fetchError").html(`There was an error :${response}`);
-  }
-  getRateBGN(response);
+    getRateBGN(response);
+  
 }
 
 async function apiRateNOK() {
@@ -79,6 +77,9 @@ async function apiRateSEK() {
 
 async function apiRateZAR() {
   const response = await CurrencyConverter.getUSD();
+  if (response === typeof Error) {
+    $(".fetchError5").html(`There was an error in the API call :${response}`);
+  }
   getRateZAR(response);
 }
 
