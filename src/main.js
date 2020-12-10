@@ -10,7 +10,6 @@ function getRateBGN(response) {
     $(".output").html(`The exchange rate from USD to BGN is ${response.conversion_rates.BGN * bgn} lev.`);
   } else {
     $(".codeError").html(`This currency is not supported at this time. Error :${response['error-type']}`);
-    $(".fetchError").html(`There was an error :${response}`);
   }
 }
 
@@ -57,6 +56,9 @@ function getRateZAR(response) {
 
 async function apiRateBGN() {
   const response = await CurrencyConverter.getUSD();
+  if (response === typeof Error) {
+  $(".fetchError").html(`There was an error :${response}`);
+  }
   getRateBGN(response);
 }
 
