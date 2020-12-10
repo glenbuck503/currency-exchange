@@ -11,7 +11,6 @@ function getRateBGN(response) {
   } else {
     $(".codeError").html(`This currency is not supported at this time. Error :${response['error-type']}`);
     $(".fetchError").html(`There was an error :${response}`);
-    
   }
 }
 
@@ -53,24 +52,7 @@ function getRateZAR(response) {
   } else{
     $(".codeError5").html(`This currency is not supported at this time. Error :${response['error-type']}`);
     $(".fetchError5").html(`There was an error in the API call :${response}`);
-    
-    
   }
-}
-function getRateUUU(response) {
-  if (response.conversion_rates){
-    if (isNaN(response.conversion_rates.uuu)){
-      $(".outputErr6").html(`This currency is not supported at this time. Error :${response['error-type']}`);
-    } 
-  } else {
-    $(".codeError6").html(`This currency is not supported at this time. ${response['error-type']}`);
-    $(".fetchError6").html(`There was an error: ${response}`);
-  } 
-}
-
-async function apiRateUUU() {
-  const response = await CurrencyConverter.getUSD();
-  getRateUUU(response);
 }
 
 async function apiRateBGN() {
@@ -97,7 +79,6 @@ async function apiRateZAR() {
   const response = await CurrencyConverter.getUSD();
   getRateZAR(response);
 }
-
 
 $(document).ready(function () {
   $("#exchange").click(function () {
@@ -138,14 +119,8 @@ $(document).ready(function () {
     $("#convert-button5").click(function () {
       event.preventDefault();
       apiRateZAR();
-    });
-  });
-
-  $("#exchange6").click(function () {
-    event.preventDefault();
-    $("#convert-button6").click(function () {
-      event.preventDefault();
-      apiRateUUU();
+      $(".codeError5").show();
+      $(".fetchError5").show();
     });
   });
 });

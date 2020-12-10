@@ -69,5 +69,12 @@ body {
   color: red;
 }
 
+.codeError5 {
+  display: none;
+}
+.fetchError5 {
+  display: none;
+}
+
 
 
